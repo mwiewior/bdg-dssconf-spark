@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: org.bdgenomics.utils:utils-misc-spark2_2.11:0.2.10:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.bdgenomics.utils/utils-misc-spark2_2.11/jars/utils-misc-spark2_2.11-0.2.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.bdgenomics.utils/utils-misc-spark2_2.11/srcs/utils-misc-spark2_2.11-0.2.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
