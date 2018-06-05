@@ -18,7 +18,7 @@ object PerformanceTest {
 
     val tartifSchema = StructType(
         Seq(
-            StructField("tarifName",StringType ),
+            StructField("tarifId",StringType ),
             StructField("start",IntegerType ),
             StructField("end", IntegerType)
         )
@@ -31,8 +31,6 @@ object PerformanceTest {
             StructField("end", IntegerType)
         )
     )
-
-
 
     def main(args: Array[String]): Unit = {
 
@@ -75,28 +73,34 @@ object PerformanceTest {
         eventDf.createOrReplaceTempView("cdr")
         //eventDf.cache().count
 
+        ds1.show(3)
+        eventDf.show(3)
         sparkSession.experimental.extraStrategies = Nil
 
         val query =
             """
-              |SELECT tarifName,COUNT(*) AS CNT
+              |SELECT tarifId,COUNT(*) AS CNT
               |FROM
               |cdr c JOIN tarif t
               |ON
               |(c.end>=t.start and c.start<=t.end )
-              |GROUP BY tarifName order by tarifName
+              |GROUP BY tarifId order by tarifId
             """.stripMargin
 
             println("Running a default strategy...")
             time(sparkSession
               .sql(query)
-              .show(5))
+                .explain
+              //.show(5)
+            )
 
             sparkSession.experimental.extraStrategies = new IntervalTreeJoinStrategy(sparkSession) :: Nil
             println("Running an optimized strategy...")
             time(sparkSession
               .sql(query)
-              .show(5))
+                .explain()
+              //.show(5)
+            )
     }
 
 

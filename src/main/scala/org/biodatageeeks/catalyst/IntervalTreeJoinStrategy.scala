@@ -11,10 +11,10 @@ import scala.annotation.tailrec
 /**
   * Created by marek on 27/01/2018.
   */
-class IntervalTreeJoinStrategy(spark: SparkSession) extends Strategy with Serializable with  PredicateHelper {
+case class IntervalTreeJoinStrategy(spark: SparkSession) extends Strategy with Serializable with  PredicateHelper {
   def apply(plan: LogicalPlan): Seq[SparkPlan] = plan match {
     case ExtractRangeJoinKeys(joinType, rangeJoinKeys, left, right) =>
-      IntervalTreeJoinOptim(planLater(left), planLater(right), rangeJoinKeys, spark,left,right) :: Nil
+      IntervalTreeJoinOptim(planLater(left), planLater(right), spark, rangeJoinKeys,left,right) :: Nil
     case _ =>
       Nil
   }
