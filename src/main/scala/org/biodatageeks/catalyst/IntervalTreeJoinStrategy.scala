@@ -2,11 +2,9 @@ package org.biodatageeks.catalyst
 
 
 import org.apache.spark.sql.catalyst.expressions.PredicateHelper
+import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 import org.apache.spark.sql.execution.SparkPlan
 import org.apache.spark.sql.{SparkSession, Strategy}
-import org.apache.spark.sql.catalyst.plans.logical.{Filter, LogicalPlan}
-
-import scala.annotation.tailrec
 
 /**
   * Created by marek on 27/01/2018.
