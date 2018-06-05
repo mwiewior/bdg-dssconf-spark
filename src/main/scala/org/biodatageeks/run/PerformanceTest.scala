@@ -2,7 +2,7 @@ package org.biodatageeks.run
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.biodatageeeks.catalyst.IntervalTreeJoinStrategy
+import org.biodatageeks.catalyst.IntervalTreeJoinStrategy
 
 import scala.util.Random
 
@@ -90,16 +90,16 @@ object PerformanceTest {
             println("Running a default strategy...")
             time(sparkSession
               .sql(query)
-                .explain
-              //.show(5)
+               // .explain
+              .show(5)
             )
 
             sparkSession.experimental.extraStrategies = new IntervalTreeJoinStrategy(sparkSession) :: Nil
             println("Running an optimized strategy...")
             time(sparkSession
               .sql(query)
-                .explain()
-              //.show(5)
+               // .explain()
+              .show(5)
             )
     }
 

@@ -1,4 +1,4 @@
-package org.biodatageeeks.catalyst
+package org.biodatageeks.catalyst
 
 import org.apache.spark.annotation.DeveloperApi
 import org.apache.spark.rdd.RDD

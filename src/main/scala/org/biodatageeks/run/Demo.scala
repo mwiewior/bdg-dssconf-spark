@@ -1,9 +1,8 @@
 package org.biodatageeks.run
 
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.apache.spark.sql.{Row, SparkSession, SparkSessionExtensions}
-import org.biodatageeeks.catalyst.IntervalTreeJoinStrategy
-import org.biodatageeks.run.PerformanceTest.{eventSchema, tartifSchema}
+import org.apache.spark.sql.{Row, SparkSession}
+import org.biodatageeks.catalyst.IntervalTreeJoinStrategy
 
 import scala.util.Random
 

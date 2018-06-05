@@ -3,7 +3,7 @@ package org.biodatageeks.tests
 import com.holdenkarau.spark.testing.{DataFrameSuiteBase, SharedSparkContext}
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.biodatageeeks.catalyst.IntervalTreeJoinStrategy
+import org.biodatageeks.catalyst.IntervalTreeJoinStrategy
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 import scala.util.Random

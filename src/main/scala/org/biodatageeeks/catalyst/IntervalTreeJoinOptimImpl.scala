@@ -1,4 +1,4 @@
-package org.biodatageeeks.catalyst
+package org.biodatageeks.catalyst
 
 import java.util.logging.Logger
 
